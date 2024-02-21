@@ -3,33 +3,21 @@ import javax.swing.*;
 import java.util.HashMap;
 
 public class Libro extends MaterialEscrito {
-    private String titulo;
     private String autor;
     private int numeroPaginas;
-    private String editorial;
     private String ISBN;
     private int anioPublicacion;
-    private int unidadesDisponibles;
 
-    public Libro(String titulo, String autor, int numeroPaginas, String editorial, String ISBN, int anioPublicacion,
-                 int unidadesDisponibles){
-        this.titulo = titulo;
+    //Constructor de la clase
+    public Libro(String codigoIdentificacion, String titulo, String autor, int numeroPaginas, String editorial, String ISBN, int anioPublicacion, int unidadesDisponibles){
+        super(codigoIdentificacion, titulo, unidadesDisponibles, editorial);
+        this.ISBN = ISBN;
         this.autor = autor;
         this.numeroPaginas = numeroPaginas;
-        this.editorial = editorial;
-        this.ISBN = ISBN;
         this.anioPublicacion = anioPublicacion;
-        this.unidadesDisponibles = unidadesDisponibles;
-    }
-     //seter y getter
-     public String getTitulo() {
-         return titulo;
-     }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
     }
 
+    //seter y getter
     public String getAutor() {
         return autor;
     }
@@ -44,14 +32,6 @@ public class Libro extends MaterialEscrito {
 
     public void setNumeroPaginas(int numeroPaginas) {
         this.numeroPaginas = numeroPaginas;
-    }
-
-    public String getEditorial() {
-        return editorial;
-    }
-
-    public void setEditorial(String editorial) {
-        this.editorial = editorial;
     }
 
     public String getISBN() {
@@ -70,22 +50,16 @@ public class Libro extends MaterialEscrito {
         this.anioPublicacion = anioPublicacion;
     }
 
-    public int getUnidadesDisponibles() {
-        return unidadesDisponibles;
-    }
-
-    public void setUnidadesDisponibles(int unidadesDisponibles) {
-        this.unidadesDisponibles = unidadesDisponibles;
-    }
+    //Fin setter y getter
     public String toString() {
         return "Libro{" +
-                "titulo='" + titulo + '\'' +
+                "titulo='" + getTitulo() + '\'' +
                 ", autor='" + autor + '\'' +
                 ", numeroPaginas=" + numeroPaginas +
-                ", editorial='" + editorial + '\'' +
+                ", editorial='" + getEditorial() + '\'' +
                 ", ISBN='" + ISBN + '\'' +
                 ", anioPublicacion=" + anioPublicacion +
-                ", unidadesDisponibles=" + unidadesDisponibles +
+                ", unidadesDisponibles=" + getEditorial() +
                 '}';
     }
 
@@ -99,5 +73,5 @@ public class Libro extends MaterialEscrito {
             libros.put(libros.size() +1, libro);
             JOptionPane.showMessageDialog(null, "Libro agregado correctamente.");
         }
-        }
     }
+}

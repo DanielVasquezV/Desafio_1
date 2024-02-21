@@ -5,13 +5,12 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-//        Mediateca mediateca = new Mediateca();
+        //Mediateca mediateca = new Mediateca();
         //Para almacenar los libros
         int opcion;
 
         do {
-            opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "1-Agregar\n 2-Modificar\n " +
-                                                                        "3-Listar\n 4-Borrar\n 5-Buscar\n 6-Salir"));
+            opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "1-Agregar\n 2-Modificar\n " + "3-Listar\n 4-Borrar\n 5-Buscar\n 6-Salir"));
 
             try{//try para validar que el usuario coloque una variable numerica y no ponga un string
                 switch (opcion){
@@ -40,13 +39,12 @@ public class Main {
                         break;
                 }
 
-            }catch (NumberFormatException e)//convierte una cadena no numerica a numero
+            }
+            catch (NumberFormatException e)//convierte una cadena no numerica a numero
             {
-                JOptionPane.showMessageDialog(null, "Opción no válida. Por favor, ",
-                                              "ingresa un número del 1 al 6", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Opción no válida. Por favor, ","ingresa un número del 1 al 6", JOptionPane.WARNING_MESSAGE);
 
             }
-
 
         }while (opcion !=6);
     }
