@@ -1,4 +1,5 @@
 package sv.edu.udb.desafio1.material.audiovisual;
+import java.util.HashMap;
 
 public class Dvd extends MaterialAudioVisual {
     private String director;
@@ -16,5 +17,26 @@ public class Dvd extends MaterialAudioVisual {
 
     public void setDirector(String director) {
         this.director = director;
+    }
+
+    public String toString() {
+        return "Dvd{" +
+                "codigoIdentificacion='" + getCodigoIdentificacion() + '\'' +
+                "titulo='" + getTitulo() + '\'' +
+                ", unidadesDisponibles=" + getUnidadesDisponibles() + '\'' +
+                ", duracion='" + getDuracion()  + '\'' +
+                ", genero='" + getGenero() + '\'' +
+                ", director='" + director + '\'' +
+                '}';
+    }
+
+    public class DvdMediateca{
+        public HashMap<Integer, Dvd> dvds;
+        public  DvdMediateca(){
+            this.dvds = new HashMap<>();
+        }
+        public void addDvds(Dvd dvd ){
+            dvds.put(dvds.size()+1, dvd);
+        }
     }
 }

@@ -50,16 +50,17 @@ public class Libro extends MaterialEscrito {
         this.anioPublicacion = anioPublicacion;
     }
 
-    //Fin setter y getter
+
     public String toString() {
         return "Libro{" +
+                "codigoIdentificacion='" + getCodigoIdentificacion() + '\'' +
                 "titulo='" + getTitulo() + '\'' +
                 ", autor='" + autor + '\'' +
                 ", numeroPaginas=" + numeroPaginas +
                 ", editorial='" + getEditorial() + '\'' +
                 ", ISBN='" + ISBN + '\'' +
-                ", anioPublicacion=" + anioPublicacion +
-                ", unidadesDisponibles=" + getEditorial() +
+                ", anioPublicacion=" + anioPublicacion + '\'' +
+                ", unidadesDisponibles=" + getUnidadesDisponibles() + '\'' +
                 '}';
     }
 
@@ -71,7 +72,6 @@ public class Libro extends MaterialEscrito {
         }
         public void addBooks(Libro libro){
             libros.put(libros.size() +1, libro);
-            JOptionPane.showMessageDialog(null, "Libro agregado correctamente.");
         }
     }
 }

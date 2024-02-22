@@ -2,6 +2,8 @@ package sv.edu.udb.desafio1.material.escrito;
 
 import sv.edu.udb.desafio1.material.Material;
 
+import java.util.HashMap;
+
 public class MaterialEscrito extends Material {
     private String editorial;
 
@@ -18,4 +20,25 @@ public class MaterialEscrito extends Material {
     public String getEditorial() {
         return editorial;
     }
+
+    public String toString() {
+        return "Escritos{" +
+                "codigoIdentificacion='" + getCodigoIdentificacion() + '\'' +
+                "titulo='" + getTitulo() + '\'' +
+                ", unidadesDisponibles=" + getUnidadesDisponibles() + '\'' +
+                ", editorial='" + editorial + '\'' +
+                '}';
+    }
+    public class EscritosMediateca{
+        public HashMap<Integer, MaterialEscrito> escritos;
+
+        public EscritosMediateca(){
+            this.escritos = new HashMap<>();
+        }
+
+        public void addEscritos(MaterialEscrito materialEscrito ){
+            escritos.put(escritos.size()+1, materialEscrito);
+        }
+    }
+
 }

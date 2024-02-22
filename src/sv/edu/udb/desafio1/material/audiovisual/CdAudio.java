@@ -1,4 +1,6 @@
 package sv.edu.udb.desafio1.material.audiovisual;
+import java.util.HashMap;
+
 
 public class CdAudio extends MaterialAudioVisual {
     private String artista;
@@ -26,6 +28,29 @@ public class CdAudio extends MaterialAudioVisual {
 
     public void setNumeroCanciones(int numeroCanciones) {
         this.numeroCanciones = numeroCanciones;
+    }
+
+    public String toString() {
+        return "CdAudio{" +
+                "codigoIdentificacion='" + getCodigoIdentificacion() + '\'' +
+                "titulo='" + getTitulo() + '\'' +
+                ", unidadesDisponibles=" + getUnidadesDisponibles() +
+                ", duracion='" + getDuracion()  + '\'' +
+                ", genero='" + getGenero() + '\'' +
+                ", artista=" + artista + '\'' +
+                ", numeroCanciones=" + numeroCanciones + '\'' +
+                '}';
+    }
+
+    public class CdMediateca {
+         public HashMap<Integer, CdAudio> cdAudios;
+
+         public CdMediateca(){
+             this.cdAudios = new HashMap<>();
+         }
+         public void addCds(CdAudio cdAudio){
+             cdAudios.put(cdAudios.size()+1, cdAudio);
+         }
     }
 }
 

@@ -1,6 +1,8 @@
 package sv.edu.udb.desafio1.material.audiovisual;
 import sv.edu.udb.desafio1.material.Material;
 
+import java.util.HashMap;
+
 public class MaterialAudioVisual extends Material {
     private String duracion;
     private String genero;
@@ -26,5 +28,26 @@ public class MaterialAudioVisual extends Material {
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    public String toString() {
+        return "AudioVisual{" +
+                "codigoIdentificacion='" + getCodigoIdentificacion() + '\'' +
+                "titulo='" + getTitulo() + '\'' +
+                ", unidadesDisponibles=" + getUnidadesDisponibles() + '\'' +
+                ", duracion='" + duracion  + '\'' +
+                ", genero='" + genero + '\'' +
+                '}';
+    }
+
+    public class AudioVisualMediateca{
+        public HashMap<Integer, MaterialAudioVisual > materialesAudiovisuales;
+
+        public AudioVisualMediateca(){
+            this.materialesAudiovisuales = new HashMap<>();
+        }
+        public void addMaterial(MaterialAudioVisual materialAudioVisual ){
+            materialesAudiovisuales.put(materialesAudiovisuales.size()+1, materialAudioVisual);
+        }
     }
 }
