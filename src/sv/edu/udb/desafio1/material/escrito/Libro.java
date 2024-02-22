@@ -63,8 +63,8 @@ public class Libro extends MaterialEscrito {
                 '}';
     }
 
-    class Mediateca {
-        private HashMap<Integer, Libro> libros;
+    public  class Mediateca {
+        public HashMap<Integer, Libro> libros;
 
         public Mediateca(){
             this.libros = new HashMap<>();
