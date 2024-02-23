@@ -63,15 +63,4 @@ public class Libro extends MaterialEscrito {
                 ", unidadesDisponibles=" + getUnidadesDisponibles() + '\'' +
                 '}';
     }
-
-    public  class Mediateca {
-        public HashMap<Integer, Libro> libros;
-
-        public Mediateca(){
-            this.libros = new HashMap<>();
-        }
-        public void addBooks(Libro libro){
-            libros.put(libros.size() +1, libro);
-        }
-    }
 }

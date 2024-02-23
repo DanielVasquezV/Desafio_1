@@ -1,20 +1,17 @@
 package sv.edu.udb.desafio1;
 import sv.edu.udb.desafio1.material.escrito.Libro;
 import java.util.HashMap;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
-
-
-
+        Mediateca mediateca = new Mediateca();
         int opcion = 0;
 
         do {
             String input = JOptionPane.showInputDialog(null, "1-Libros\n 2-DVD\n "
                     + "3-Material Audiovisual\n 4-CdAudio\n 5-Revistas\n 6-Salir");
-
-
             try {
                 opcion = Integer.parseInt(input);
 
@@ -30,10 +27,8 @@ public class Main {
                              switch (optBook){
                                  case 1:
                                      JOptionPane.showMessageDialog(null, "Bienvenido a la sección de libros");
-
+                                     String codigoIdentificacion = generarCodigoIdentificacion("LIB");
                                      // Pedir al usuario que ingrese los detalles del libro
-                                     String codigoIdentificacion = JOptionPane.showInputDialog
-                                             ("Ingrese el código de identificación del libro:");
                                      String titulo = JOptionPane.showInputDialog
                                              ("Ingrese el título del libro:");
                                      String autor = JOptionPane.showInputDialog
@@ -53,9 +48,6 @@ public class Main {
                                      Libro libro = new Libro(codigoIdentificacion, titulo, autor, numeroPaginas,
                                              editorial, ISBN, anioPublicacion, unidadesDisponibles);
 
-                                     // Obtener la mediateca
-                                     Libro.Mediateca mediateca = libro.new Mediateca();
-
                                      // Agregar el libro a la mediateca
                                      mediateca.addBooks(libro);
 
@@ -68,11 +60,14 @@ public class Main {
                                      break;
 
                                  case 3:
+
                                      break;
 
                                  case 4:
-                                     break;
-
+                                     String codigoLibro = JOptionPane.showInputDialog("Ingrese el código de identificación del libro a borrar:");
+                                     if (codigoLibro != null) {
+                                         mediateca.removeBook(codigoLibro);
+                                     }
                                  case 5:
                                      break;
                                  case 6:
@@ -107,5 +102,10 @@ public class Main {
             }
 
         } while (opcion != 6);
+    }
+    private static String generarCodigoIdentificacion(String prefijo) {
+        Random random = new Random();
+        int codigoAleatorio = random.nextInt(90000) + 10000; // Genera un número aleatorio de 5 dígitos
+        return prefijo + codigoAleatorio;
     }
 }
