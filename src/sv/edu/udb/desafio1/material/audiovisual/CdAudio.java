@@ -32,17 +32,17 @@ public class CdAudio extends MaterialAudioVisual {
 
     public String toString() {
         return "CdAudio{" +
-                "codigoIdentificacion='" + getCodigoIdentificacion() + '\'' +
-                "titulo='" + getTitulo() + '\'' +
-                ", unidadesDisponibles=" + getUnidadesDisponibles() +
-                ", duracion='" + getDuracion()  + '\'' +
-                ", genero='" + getGenero() + '\'' +
-                ", artista=" + artista + '\'' +
-                ", numeroCanciones=" + numeroCanciones + '\'' +
+                "codigoIdentificacionCd='" + getCodigoIdentificacion() + '\'' +
+                "tituloCd='" + getTitulo() + '\'' +
+                ", unidadesDisponiblesCd=" + getUnidadesDisponibles() +
+                ", duracionCd='" + getDuracion()  + '\'' +
+                ", generoCd='" + getGenero() + '\'' +
+                ", artistaCd=" + artista + '\'' +
+                ", numeroCancionesCd=" + numeroCanciones + '\'' +
                 '}';
     }
 
-    public class CdMediateca {
+    public class CdMediateca{
          public HashMap<Integer, CdAudio> cdAudios;
 
          public CdMediateca(){
