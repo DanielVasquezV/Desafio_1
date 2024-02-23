@@ -5,11 +5,11 @@ import java.util.HashMap;
 public class Libro extends MaterialEscrito {
     private String autor;
     private int numeroPaginas;
-    private String ISBN;
+    private int ISBN;
     private int anioPublicacion;
 
     //Constructor de la clase
-    public Libro(String codigoIdentificacion, String titulo, String autor, int numeroPaginas, String editorial, String ISBN, int anioPublicacion, int unidadesDisponibles){
+    public Libro(String codigoIdentificacion, String titulo, String autor, int numeroPaginas, String editorial, int ISBN, int anioPublicacion, int unidadesDisponibles){
         super(codigoIdentificacion, titulo, unidadesDisponibles, editorial);
         this.ISBN = ISBN;
         this.autor = autor;
@@ -34,11 +34,11 @@ public class Libro extends MaterialEscrito {
         this.numeroPaginas = numeroPaginas;
     }
 
-    public String getISBN() {
+    public int getISBN() {
         return ISBN;
     }
 
-    public void setISBN(String ISBN) {
+    public void setISBN(int ISBN) {
         this.ISBN = ISBN;
     }
 

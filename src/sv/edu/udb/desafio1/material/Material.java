@@ -39,10 +39,4 @@ public class Material {
         this.unidadesDisponibles = unidadesDisponibles;
     }
 
-    private void generarCodigoIdentificacion(String tipoMaterial) {
-        Random random = new Random();
-        int numeroAleatorio = random.nextInt(90000) + 10000;
-
-        this.codigoIdentificacion = tipoMaterial + numeroAleatorio;
-    }
 }
