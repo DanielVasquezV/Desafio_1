@@ -42,15 +42,5 @@ public class CdAudio extends MaterialAudioVisual {
                 '}';
     }
 
-    public class CdMediateca{
-         public HashMap<Integer, CdAudio> cdAudios;
-
-         public CdMediateca(){
-             this.cdAudios = new HashMap<>();
-         }
-         public void addCds(CdAudio cdAudio){
-             cdAudios.put(cdAudios.size()+1, cdAudio);
-         }
-    }
 }
 

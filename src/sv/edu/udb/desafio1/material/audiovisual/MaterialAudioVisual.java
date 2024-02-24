@@ -8,11 +8,12 @@ public class MaterialAudioVisual extends Material {
     private String genero;
 
     //Constructor de la clase
-    public MaterialAudioVisual(String codigoIdentificacion, String titulo, int unidadesDisponibles, String duracion, String genero){
+    public MaterialAudioVisual(String codigoIdentificacion, String titulo, int unidadesDisponibles, String duracion, String genero) {
         super(codigoIdentificacion, titulo, unidadesDisponibles);
         this.duracion = duracion;
         this.genero = genero;
     }
+
     // Setter y Getter
     public String getDuracion() {
         return duracion;
@@ -32,22 +33,12 @@ public class MaterialAudioVisual extends Material {
 
     public String toString() {
         return "AudioVisual{" +
-                "codigoIdentificacion='" + getCodigoIdentificacion() + '\'' +
-                "titulo='" + getTitulo() + '\'' +
-                ", unidadesDisponibles=" + getUnidadesDisponibles() + '\'' +
-                ", duracion='" + duracion  + '\'' +
-                ", genero='" + genero + '\'' +
+                "codigoIdentificacionMav='" + getCodigoIdentificacion() + '\'' +
+                "tituloMav='" + getTitulo() + '\'' +
+                ", unidadesDisponiblesMav=" + getUnidadesDisponibles() + '\'' +
+                ", duracionMav='" + duracion + '\'' +
+                ", generoMav='" + genero + '\'' +
                 '}';
     }
 
-    public class AudioVisualMediateca{
-        public HashMap<Integer, MaterialAudioVisual > materialesAudiovisuales;
-
-        public AudioVisualMediateca(){
-            this.materialesAudiovisuales = new HashMap<>();
-        }
-        public void addMaterial(MaterialAudioVisual materialAudioVisual ){
-            materialesAudiovisuales.put(materialesAudiovisuales.size()+1, materialAudioVisual);
-        }
-    }
 }

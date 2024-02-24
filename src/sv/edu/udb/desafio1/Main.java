@@ -3,6 +3,8 @@ package sv.edu.udb.desafio1;
 import sv.edu.udb.desafio1.material.escrito.*;
 import sv.edu.udb.desafio1.material.audiovisual.*;
 import  sv.edu.udb.desafio1.material.audiovisual.CdAudio;
+import sv.edu.udb.desafio1.material.audiovisual.MaterialAudioVisual;
+import sv.edu.udb.desafio1.material.escrito.Revista;
 
 //Import de librerias de java
 import java.util.Calendar;
@@ -14,13 +16,16 @@ public class Main {
     public static void main(String[] args) {
         Mediateca mediateca = new Mediateca();
         DvdMediateca dvdMediateca = new DvdMediateca();
-//        CdMediateca cdMediateca = new CdMediateca();
+        CdMediateca cdMediateca = new CdMediateca();
+        AudioVisualMediateca audioVisualMediateca = new AudioVisualMediateca();
+        RevistasMediateca revistasMediateca = new RevistasMediateca();
+
         int opcion = 0;
         boolean pass;
 
         do {
             String input = JOptionPane.showInputDialog(null, "1-Libros\n 2-Dvd\n "
-                    + "3-Material Audiovisual\n 4-CdAudio\n 5-Revistas\n 6-Salir");
+                    + "3-CdAudio\n 4-Material Audiovisual\n 5-Revistas\n 6-Salir");
             try {
                 opcion = Integer.parseInt(input);
 
@@ -179,6 +184,7 @@ public class Main {
 
                                     // Agregar el DVD a la mediateca
                                     dvdMediateca.addDvds(dvd);
+                                    System.out.println(dvd.toString());
 
                                     break;
                             }
@@ -201,6 +207,7 @@ public class Main {
                                     int unidadesDisponiblesCd = obtenerUnidades("Cd");
                                     String duracionCd = obtenerDuracion("Cd");
                                     String generoCd = obtenerGenero("Cd");
+
                                     String artistaCd;
                                     do {
                                         artistaCd = JOptionPane.showInputDialog ("Ingrese el director del Dvd:");
@@ -229,7 +236,9 @@ public class Main {
                                     CdAudio cdAudio = new CdAudio(codigoIdentificacionCd,tituloCd,unidadesDisponiblesCd,
                                             duracionCd,generoCd, artistaCd, numeroCancionesCd);
 
-//                                    cdMediateca.addCds(cdAudio);
+                                    cdMediateca.addCds(cdAudio);
+                                    System.out.println(cdAudio.toString());
+
 
 
                                     break;
@@ -238,13 +247,76 @@ public class Main {
 
                         break;
                     case 4:
-                        // Agregar código para la opción 4 (Libros)
+                        JOptionPane.showMessageDialog(null,
+                                "Bienvendio a al sección de Material Audio Visual");
+                        int optMav=0;
+                        do{
+                            optMav = mostrarMenu();
+                            switch (optMav){
+                                case 1:
+                                    String codigoIdentificacionMav = generarCodigoIdentificacion("MaterialAudioVisual");
+                                    String tituloMav = obtenerTitulo("Material AudioVisual");
+                                    int unidadesDisponiblesMav = obtenerUnidades("Material AudioVisual");
+                                    String duracionMav = obtenerDuracion("Material AudioVisual");
+                                    String generoMav = obtenerGenero("Material AudioVisual");
+
+                                    MaterialAudioVisual materialAudioVisual = new MaterialAudioVisual(codigoIdentificacionMav,
+                                            tituloMav, unidadesDisponiblesMav, duracionMav, generoMav);
+
+                                    audioVisualMediateca.addMaterial(materialAudioVisual);
+
+
+
+
+                                    break;
+                            }
+
+                        }while(optMav !=6);
+
+
+
                         break;
                     case 5:
-                        // Agregar código para la opción 5 (Revistas)
+                        JOptionPane.showMessageDialog(null, "Bienvendio a al sección de Revista");
+
+                        int optRev = 0;
+                        do {
+                            optRev = mostrarMenu();
+                            switch (optRev){
+                                case 1:
+                                    String codiIndetificacionRev = generarCodigoIdentificacion("Revista");
+                                    String tituloRev = obtenerTitulo("Revista");
+                                    int unidadesDisponiblesRev = obtenerUnidades("Revista");
+
+                                    String periodicidadRev;
+                                    do {
+                                        periodicidadRev = JOptionPane.showInputDialog ("Ingrese la periodicidad:");
+                                        if (periodicidadRev == null || periodicidadRev.trim().isEmpty()){
+                                            JOptionPane.showMessageDialog(null, "Ingrese un valor valido");
+                                        }
+                                    } while (periodicidadRev == null || periodicidadRev.trim().isEmpty());
+
+                                    String fechaPublicacionRev;
+                                    do {
+                                        fechaPublicacionRev = JOptionPane.showInputDialog ("Ingrese el director de la revista:");
+                                        if (fechaPublicacionRev == null || fechaPublicacionRev.trim().isEmpty()){
+                                            JOptionPane.showMessageDialog(null, "Ingrese un nombre valido");
+                                        }
+                                    } while (fechaPublicacionRev == null || fechaPublicacionRev.trim().isEmpty());
+
+                                    Revista revista = new Revista(codiIndetificacionRev,tituloRev,unidadesDisponiblesRev,
+                                            periodicidadRev,fechaPublicacionRev);
+
+                                    revistasMediateca.addRevista(revista);
+
+
+
+                                    break;
+                            }
+                        }while (optRev != 6);
                         break;
                     case 6:
-                        // Salir del programa
+                        JOptionPane.showMessageDialog(null, "Saliendo del programa");
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Opción no válida. Por favor, ingresa un número del 1 al 6.", "Error", JOptionPane.WARNING_MESSAGE);
@@ -332,7 +404,7 @@ public class Main {
         int unidadesDisponibles = 0;
         do {
             try {
-                String unidadesDisponiblesString = JOptionPane.showInputDialog ("Ingrese el número de unidades disponibles del :" +
+                String unidadesDisponiblesString = JOptionPane.showInputDialog ("Ingrese el número de unidades disponibles del " +
                         tipoMaterial + ":");
                 unidadesDisponibles = Integer.parseInt(unidadesDisponiblesString);
                 nextStep = true;
