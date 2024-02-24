@@ -5,7 +5,7 @@ public class Revista extends MaterialEscrito {
     private String fechaPublicacion;
 
     //Constructor de la clase
-    public Revista(String codigoIdentificacion, String titulo, int unidadesDisponibles, String editorial, String periodicidad) {
+    public Revista(String codigoIdentificacion, String titulo, String editorial,  String periodicidad, String fechaPublicacion, int unidadesDisponibles) {
         super(codigoIdentificacion, titulo, unidadesDisponibles, editorial);
         this.periodicidad = periodicidad;
         this.fechaPublicacion = fechaPublicacion;
@@ -29,13 +29,13 @@ public class Revista extends MaterialEscrito {
     }
 
     public String toString() {
-        return "Revista{" +
-                "codigoIdentificacionRev='" + getCodigoIdentificacion() + '\'' +
-                "tituloRev='" + getTitulo() + '\'' +
-                ", unidadesDisponiblesRev=" + getUnidadesDisponibles() + '\'' +
-                ", periodicidadRev='" + periodicidad + '\'' +
-                ", fechaPublicacionRev='" + fechaPublicacion + '\'' +
-                '}';
+        return
+                "Código: " + getCodigoIdentificacion() + ',' +
+                " Titulo: " + getTitulo() + ',' +
+                " Editorial: " + getEditorial() + ',' +
+                " Unidades disponibles: " + getUnidadesDisponibles() + ',' +
+                " Periodicidad: " + periodicidad + ',' +
+                " Fecha de publicación: " + fechaPublicacion + ',';
     }
 
 }

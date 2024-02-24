@@ -7,7 +7,7 @@ public class CdAudio extends MaterialAudioVisual {
     private int numeroCanciones;
 
     //Constructor de la clase
-    public CdAudio(String codigoIdentificacion, String titulo, int unidadesDisponibles, String duracion, String genero, String artista, int numeroCanciones){
+    public CdAudio(String codigoIdentificacion, String titulo, String artista,  String genero, String duracion,  int numeroCanciones, int unidadesDisponibles){
         super(codigoIdentificacion, titulo, unidadesDisponibles, duracion, genero);
         this.artista = artista;
         this.numeroCanciones = numeroCanciones;
@@ -31,15 +31,14 @@ public class CdAudio extends MaterialAudioVisual {
     }
 
     public String toString() {
-        return "CdAudio{" +
-                "codigoIdentificacionCd='" + getCodigoIdentificacion() + '\'' +
-                "tituloCd='" + getTitulo() + '\'' +
-                ", unidadesDisponiblesCd=" + getUnidadesDisponibles() +
-                ", duracionCd='" + getDuracion()  + '\'' +
-                ", generoCd='" + getGenero() + '\'' +
-                ", artistaCd=" + artista + '\'' +
-                ", numeroCancionesCd=" + numeroCanciones + '\'' +
-                '}';
+        return
+                "Código: " + getCodigoIdentificacion() + ',' +
+                " Titulo: " + getTitulo() + ',' +
+                " unidadesDisponiblesCd: " + getUnidadesDisponibles()+ ',' +
+                " Duración: " + getDuracion()  + ',' +
+                " Género: " + getGenero() + ',' +
+                " Artista: " + artista + ',' +
+                " Número de canciones: " + numeroCanciones + ',';
     }
 
 }

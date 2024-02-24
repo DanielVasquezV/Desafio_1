@@ -26,12 +26,10 @@ public  class Mediateca {
     }
     public void searchBook(String codigoIdentificacion){
         if (libros.containsKey(codigoIdentificacion)){
-            System.out.println("Libro encontrado: "+libros.get(codigoIdentificacion));
+            JOptionPane.showMessageDialog(null, "Libro encontrado: "+libros.get(codigoIdentificacion));
         } else {
-            System.out.println("Libro no encontrado");
+            JOptionPane.showMessageDialog(null, "Libro con código " + codigoIdentificacion + " no encontrado.");
         }
     }
-
-
 }
 

@@ -6,7 +6,7 @@
         private String director;
 
         //Constructor de la clase
-        public Dvd(String codigoIdentificacion, String titulo, int unidadesDisponibles, String duracion, String genero, String director){
+        public Dvd(String codigoIdentificacion, String titulo, String director, String duracion,  String genero, int unidadesDisponibles ){
             super(codigoIdentificacion, titulo, unidadesDisponibles, duracion, genero);
             this.director = director;
         }
@@ -21,14 +21,13 @@
         }
 
         public String toString() {
-            return "Dvd{" +
-                    "codigoIdentificaciondvd='" + getCodigoIdentificacion() + '\'' +
-                    "titulodvd='" + getTitulo() + '\'' +
-                    ", unidadesDisponiblesdvd=" + getUnidadesDisponibles() + '\'' +
-                    ", duraciondvd='" + getDuracion()  + '\'' +
-                    ", generodvd='" + getGenero() + '\'' +
-                    ", director='" + director + '\'' +
-                    '}';
+            return
+                    "Código: " + getCodigoIdentificacion() + ',' +
+                    " Titulo: " + getTitulo() + ',' +
+                    " Unidades disponibles: " + getUnidadesDisponibles() + ',' +
+                    " Duracion: " + getDuracion()  + ',' +
+                    " Género: " + getGenero() + ',' +
+                    " Director: " + director ;
         }
     }
 
