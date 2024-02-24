@@ -1,6 +1,6 @@
 # Desafío 1
 
-Este repositorio contiene el código fuente de nuestra primera entrega para el curso de programación orientada a objetos.
+Este repositorio contiene el código fuente de un gestor de Mediateca que permite administrar libros, revistas, DVD, y CD's usando programación orientada a objetos.
 
 ## Integrantes del equipo
 
@@ -11,7 +11,6 @@ Este repositorio contiene el código fuente de nuestra primera entrega para el c
 
 Para el desarrollo de este proyecto, utilizamos los siguientes lenguajes y herramientas:
 
-- Programación orientada a objetos (POO)
 - Java
 - IntelliJ IDEA
 
@@ -27,9 +26,9 @@ Para ejecutar el proyecto, sigue los siguientes pasos:
 
 1. Clona el repositorio en tu máquina local.
 2. Abre el proyecto en IntelliJ IDEA.
-3. Selecciona la clase principal (la que contenga el método `main`) y haz clic en el botón "Ejecutar" o presiona `Shift + F10`.
-4. Observa la salida en la consola para verificar que el programa se ejecute correctamente.
+3. Selecciona la clase principal `Main` y haz clic en el botón "Ejecutar" o presiona `Shift + F10`.
+4. Observa la salida en en las ventanas emergentes para verificar que el programa se ejecute correctamente.
 
 ## Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto esta bajo una Licencia Creative Commons Atribución-NoComercial 4.0 Internacional.
