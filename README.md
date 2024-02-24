@@ -12,7 +12,7 @@ Este repositorio contiene el código fuente de nuestra primera entrega para el c
 Para el desarrollo de este proyecto, utilizamos los siguientes lenguajes y herramientas:
 
 - Programación orientada a objetos (POO)
-- Herencia
+- Java
 - IntelliJ IDEA
 
 ## Descripción del proyecto
