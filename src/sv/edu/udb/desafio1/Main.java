@@ -1,4 +1,5 @@
 package sv.edu.udb.desafio1;
+
 //imports de package´s
 import sv.edu.udb.desafio1.mediateca.*;
 import sv.edu.udb.desafio1.material.escrito.*;
@@ -24,20 +25,18 @@ public class Main {
         do {
             String input = JOptionPane.showInputDialog(null, """
                     Seleccione el tipo de material a gestionar\s
-                    1-Libros
+                     1-Libros
                      2-Dvd
                      3-CdAudio
-                     4-Material Audiovisual
-                     5-Revistas
-                     6-Salir""");
+                     4-Revistas
+                     5-Salir""");
             try {
                 opcion = Integer.parseInt(input);
 
                 switch (opcion) {
                     case 1:
-                        JOptionPane.showMessageDialog(null, "Bienvenido a al sección de libros");
 
-                        // Agregar código para la opción 1 (CdAudio)
+                        JOptionPane.showMessageDialog(null, "Bienvenido a al sección de libros");
                         int optBook;
                          do{
                              optBook = mostrarMenu();
@@ -560,10 +559,10 @@ public class Main {
 
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Opción no válida. Por favor, ingresa un número del 1 al 6.", "Error", JOptionPane.WARNING_MESSAGE);
-                opcion = 0; // Reiniciar la opción para volver a pedir la entrada al usuario
+                opcion = 0t ; // Reiniciar la opción para volver a pedir la entrada al usuario
             }
 
-        } while (opcion != 6);
+        } while (opcion != 5);
     }
 
     public static int mostrarMenu() {
