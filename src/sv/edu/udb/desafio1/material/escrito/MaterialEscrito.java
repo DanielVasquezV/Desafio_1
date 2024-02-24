@@ -29,16 +29,5 @@ public class MaterialEscrito extends Material {
                 ", editorial='" + editorial + '\'' +
                 '}';
     }
-    public class EscritosMediateca{
-        public HashMap<Integer, MaterialEscrito> escritos;
-
-        public EscritosMediateca(){
-            this.escritos = new HashMap<>();
-        }
-
-        public void addEscritos(MaterialEscrito materialEscrito ){
-            escritos.put(escritos.size()+1, materialEscrito);
-        }
-    }
 
 }

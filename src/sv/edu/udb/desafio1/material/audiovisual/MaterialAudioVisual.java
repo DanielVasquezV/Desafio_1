@@ -1,8 +1,6 @@
 package sv.edu.udb.desafio1.material.audiovisual;
 import sv.edu.udb.desafio1.material.Material;
 
-import java.util.HashMap;
-
 public class MaterialAudioVisual extends Material {
     private String duracion;
     private String genero;

@@ -1,8 +1,5 @@
 package sv.edu.udb.desafio1.mediateca;
-import sv.edu.udb.desafio1.material.audiovisual.CdAudio;
 import sv.edu.udb.desafio1.material.audiovisual.Dvd;
-import sv.edu.udb.desafio1.material.escrito.Libro;
-import sv.edu.udb.desafio1.material.escrito.Revista;
 
 import javax.swing.*;
 import java.io.BufferedWriter;
@@ -56,6 +53,8 @@ public class DvdMediateca {
                 listaCds.append(dvd.toString()).append("\n");
             }
             JOptionPane.showMessageDialog(null, listaCds.toString());
+        }
+    }
 
     public void guardarDvdTxt(String nombreArchivo) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {

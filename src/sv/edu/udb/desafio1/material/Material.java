@@ -1,7 +1,5 @@
 package sv.edu.udb.desafio1.material;
 
-import java.util.Random;
-
 public class Material {
     private String codigoIdentificacion;
     private String titulo;

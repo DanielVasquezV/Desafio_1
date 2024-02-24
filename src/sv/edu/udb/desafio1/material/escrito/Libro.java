@@ -1,6 +1,4 @@
 package sv.edu.udb.desafio1.material.escrito;
-import javax.swing.*;
-import java.util.HashMap;
 
 public class Libro extends MaterialEscrito {
     private String autor;

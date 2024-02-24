@@ -2,8 +2,6 @@ package sv.edu.udb.desafio1.mediateca;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import sv.edu.udb.desafio1.material.audiovisual.Dvd;
-import sv.edu.udb.desafio1.material.escrito.Libro;
 import sv.edu.udb.desafio1.material.escrito.Revista;
 
 import javax.swing.*;
@@ -55,9 +53,9 @@ public class RevistasMediateca {
                 listaCds.append(rv.toString()).append("\n");
             }
             JOptionPane.showMessageDialog(null, listaCds.toString());
-
-
-    public void guardarRevistaTxt(String nombreArchivo) {
+        }
+    }
+    public void guardarRevistaTxt(String nombreArchivo){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
             for (Map.Entry<String, Revista> entry : revistas.entrySet()) {
                 String linea = entry.getValue().toString();

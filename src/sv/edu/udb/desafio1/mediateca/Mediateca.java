@@ -1,7 +1,6 @@
 package sv.edu.udb.desafio1.mediateca;
 //import de package´s
 import sv.edu.udb.desafio1.material.escrito.Libro;
-import sv.edu.udb.desafio1.material.escrito.Revista;
 
 
 //Librerias de java
@@ -57,6 +56,8 @@ public  class Mediateca {
                 listaCds.append(lb.toString()).append("\n");
             }
             JOptionPane.showMessageDialog(null, listaCds.toString());
+        }
+    }
 
             public void guardarLibroTxt (String nombreArchivo){
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {

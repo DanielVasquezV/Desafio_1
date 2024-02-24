@@ -4,12 +4,10 @@ import sv.edu.udb.desafio1.mediateca.*;
 import sv.edu.udb.desafio1.material.escrito.*;
 import sv.edu.udb.desafio1.material.audiovisual.*;
 import  sv.edu.udb.desafio1.material.audiovisual.CdAudio;
-import sv.edu.udb.desafio1.material.audiovisual.MaterialAudioVisual;
 import sv.edu.udb.desafio1.material.escrito.Revista;
 
 //Import de librerias de java
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -18,15 +16,20 @@ public class Main {
         Mediateca mediateca = new Mediateca();
         DvdMediateca dvdMediateca = new DvdMediateca();
         CdMediateca cdMediateca = new CdMediateca();
-        AudioVisualMediateca audioVisualMediateca = new AudioVisualMediateca();
         RevistasMediateca revistasMediateca = new RevistasMediateca();
 
-        int opcion = 0;
+        int opcion;
         boolean pass;
 
         do {
-            String input = JOptionPane.showInputDialog(null, "Seleccione el tipo de material a gestionar \n1-Libros\n 2-Dvd\n "
-                    + "3-CdAudio\n 4-Material Audiovisual\n 5-Revistas\n 6-Salir");
+            String input = JOptionPane.showInputDialog(null, """
+                    Seleccione el tipo de material a gestionar\s
+                    1-Libros
+                     2-Dvd
+                     3-CdAudio
+                     4-Material Audiovisual
+                     5-Revistas
+                     6-Salir""");
             try {
                 opcion = Integer.parseInt(input);
 
@@ -35,7 +38,7 @@ public class Main {
                         JOptionPane.showMessageDialog(null, "Bienvenido a al sección de libros");
 
                         // Agregar código para la opción 1 (CdAudio)
-                        int optBook=0;
+                        int optBook;
                          do{
                              optBook = mostrarMenu();
 
@@ -48,7 +51,7 @@ public class Main {
                                      //Titulo
                                      String titulo = obtenerTitulo("Libro");
                                      //Autor
-                                     String autor = obtenerAutor("Libro");
+                                     String autor = obtenerAutor();
 
                                      //Num Páginas
                                      pass = false;
@@ -68,7 +71,7 @@ public class Main {
                                      //ISBN
                                      pass = false;
                                      int ISBN = 0;
-                                     do {
+                                     do{
                                          try {
                                              String ISBNString = JOptionPane.showInputDialog("Ingrese el ISBN del libro:");
                                              // Verificar la longitud y si es un número entero
@@ -119,7 +122,7 @@ public class Main {
 
                                      JOptionPane.showMessageDialog(null, "Libro agregado correctamente a la mediateca.");
                                      mediateca.guardarLibroTxt("libros.txt");
-                                     System.out.println(libro.toString());
+                                     System.out.println(libro);
 
                                      break;
 
@@ -130,7 +133,7 @@ public class Main {
                                          if(mediateca.libros.containsKey(updLibro)){
                                              Libro libroExistente = mediateca.libros.get(updLibro);
                                              String nuevoTitulo = obtenerTitulo("Libro");
-                                             String nuevoAutor = obtenerAutor("Libro");
+                                             String nuevoAutor = obtenerAutor();
                                              boolean nextstep = false;
                                              int nuevoNumeroPaginas = 0;
                                              do {
@@ -229,7 +232,7 @@ public class Main {
 
                     case 2:
                         JOptionPane.showMessageDialog(null, "Bienvenido a al sección de Dvd");
-                        int optDvd= 0;
+                        int optDvd;
                         do {
                             optDvd=mostrarMenu();
 
@@ -260,7 +263,7 @@ public class Main {
                                     dvdMediateca.addDvds(dvd);
                                     JOptionPane.showMessageDialog(null, "DVD agregado correctamente a la mediateca.");
                                     dvdMediateca.guardarDvdTxt("DVDs.txt");
-                                    System.out.println(dvd.toString());
+                                    System.out.println(dvd);
 
                                     break;
 
@@ -286,7 +289,7 @@ public class Main {
                                                     ,nuevaDuracion,nuevoGenero,nuevodirector, nuevasUnidades);
                                              dvdMediateca.updateDvd(updtDvd, nuevoDvd);
 
-                                            System.out.println(nuevoDvd.toString());
+                                            System.out.println(nuevoDvd);
 
                                         }else {
                                             JOptionPane.showMessageDialog(null, "DVD con código " + updtDvd +
@@ -322,7 +325,7 @@ public class Main {
 
                     case 3:
                         JOptionPane.showMessageDialog(null, "Bienvendio a al sección de Cd's");
-                        int optCd=0;
+                        int optCd;
                         do {
                             optCd=mostrarMenu();
                             switch (optCd){
@@ -350,7 +353,7 @@ public class Main {
                                     do {
                                         try {
                                             String numeroCancionesCdString = JOptionPane.showInputDialog ("Ingrese el n° de canciones: ");
-                                            if (numeroCancionesCdString.length() <=0 ){
+                                            if (numeroCancionesCdString.isEmpty()){
                                                 numeroCancionesCd = Integer.parseInt(numeroCancionesCdString);
                                                 JOptionPane.showMessageDialog(null, "Error: " +
                                                         "Ingrese un numero valido");
@@ -369,7 +372,7 @@ public class Main {
                                     cdMediateca.addCds(cdAudio);
                                     JOptionPane.showMessageDialog(null, "CD agregado correctamente a la mediateca.");
                                     cdMediateca.guardarCdTxt("CDs.txt");
-                                    System.out.println(cdAudio.toString());
+                                    System.out.println(cdAudio);
                                     break;
 
                                 case 2:
@@ -395,7 +398,7 @@ public class Main {
                                             do {
                                                 try {
                                                     String nuevonumeroCancionesString = JOptionPane.showInputDialog ("Ingrese el n° de canciones: ");
-                                                    if (nuevonumeroCancionesString.length() <=0 ){
+                                                    if (nuevonumeroCancionesString.isEmpty()){
                                                         nuevonumeroCancionesCd = Integer.parseInt(nuevonumeroCancionesString);
                                                         JOptionPane.showMessageDialog(null, "Error: " +
                                                                 "Ingrese un numero valido");
@@ -411,7 +414,7 @@ public class Main {
                                                     ,nuevaDuracion,nuevoGenero,nuevoArtista, nuevasUnidades, nuevonumeroCancionesCd);
                                             cdMediateca.updateCd(updtCd, nuevoCd);
 
-                                            System.out.println(nuevoCd.toString());
+                                            System.out.println(nuevoCd);
 
                                         }else {
                                             JOptionPane.showMessageDialog(null, "DVD con código " + optCd +
@@ -448,7 +451,7 @@ public class Main {
                     case 5:
                         JOptionPane.showMessageDialog(null, "Bienvenido a al sección de Revista");
 
-                        int optRev = 0;
+                        int optRev;
                         do {
                             optRev = mostrarMenu();
                             switch (optRev){
@@ -479,7 +482,7 @@ public class Main {
 
                                     revistasMediateca.addRevista(revista);
                                     JOptionPane.showMessageDialog(null, "Revista agregada correctamente a la mediateca.");
-                                    System.out.println(revista.toString());
+                                    System.out.println(revista);
                                     revistasMediateca.guardarRevistaTxt("revistas.txt");
                                     break;
 
@@ -488,7 +491,7 @@ public class Main {
                                             "Inresa el codigo de intentificacion de ls revista a actualizar:");
                                     if (updtRevista != null) {
                                         if(revistasMediateca.revistas.containsKey(updtRevista)) {
-                                            String nuevocódigoIdentificacion = generarCodigoIdentificacion("Rev");
+                                            String nuevocodigoIdentificacion = generarCodigoIdentificacion("Rev");
                                             String nuevoTitulo = obtenerTitulo("Revista");
                                             String nuevaEditorial = obtenerEditorial("Revista");
                                             int nuevasUnidadesDisponiblesRev = obtenerUnidades("Revista");
@@ -511,11 +514,11 @@ public class Main {
 
 
 
-                                            Revista nuevaRevista = new Revista(nuevocódigoIdentificacion, nuevoTitulo, nuevaEditorial,
+                                            Revista nuevaRevista = new Revista(nuevocodigoIdentificacion, nuevoTitulo, nuevaEditorial,
                                                     nuevaFechaPublicacionRev, nuevaperiodicidadRev, nuevasUnidadesDisponiblesRev);
 
                                             revistasMediateca.updateRevista(updtRevista, nuevaRevista);
-                                            System.out.println(nuevaRevista.toString());
+                                            System.out.println(nuevaRevista);
 
                                         }else {
                                             JOptionPane.showMessageDialog(null, "Revista con código " + updtRevista + " no se encuentra en la mediateca.");
@@ -570,13 +573,14 @@ public class Main {
         while (!entradaValida) {
             try {
                 opcionSeleccionada = Integer.parseInt(JOptionPane.showInputDialog(null,
-                        "Qué desea hacer?\n" +
-                                "1-Agregar\n" +
-                                "2-Modificar\n" +
-                                "3-Listar\n" +
-                                "4-Borrar\n" +
-                                "5-Buscar\n" +
-                                "6-Regresar"));
+                        """
+                                Qué desea hacer?
+                                1-Agregar
+                                2-Modificar
+                                3-Listar
+                                4-Borrar
+                                5-Buscar
+                                6-Regresar"""));
 
                 // Verifica si la opción seleccionada está dentro del rango permitido
                 if (opcionSeleccionada >= 1 && opcionSeleccionada <= 6) {
@@ -607,10 +611,10 @@ public class Main {
         } while (titulo == null || titulo.trim().isEmpty());
         return titulo;
     }
-    private static String obtenerAutor( String tipoMatrial){
+    private static String obtenerAutor(){
         String autor;
         do {
-            autor = JOptionPane.showInputDialog ("Ingrese el autor del " + tipoMatrial + ":");
+            autor = JOptionPane.showInputDialog ("Ingrese el autor del Libro: ");
             if (autor == null || autor.trim().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Ingrese un titulo valido");
             }
