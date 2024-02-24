@@ -1,5 +1,6 @@
 package sv.edu.udb.desafio1;
 //imports de package´s
+import sv.edu.udb.desafio1.mediateca.*;
 import sv.edu.udb.desafio1.material.escrito.*;
 import sv.edu.udb.desafio1.material.audiovisual.*;
 import  sv.edu.udb.desafio1.material.audiovisual.CdAudio;
@@ -24,7 +25,7 @@ public class Main {
         boolean pass;
 
         do {
-            String input = JOptionPane.showInputDialog(null, "1-Libros\n 2-Dvd\n "
+            String input = JOptionPane.showInputDialog(null, "Seleccinone el tipo de material a gestionar \n1-Libros\n 2-Dvd\n "
                     + "3-CdAudio\n 4-Material Audiovisual\n 5-Revistas\n 6-Salir");
             try {
                 opcion = Integer.parseInt(input);
@@ -437,4 +438,14 @@ public class Main {
         return genero;
     }
 
+    public static class RevistasMediateca {
+        public HashMap<Integer, Revista> revistas;
+
+        public RevistasMediateca(){
+            this.revistas = new HashMap<>();
+        }
+        public void addRevista(Revista revista ){
+            revistas.put(revistas.size()+1, revista);
+        }
+    }
 }

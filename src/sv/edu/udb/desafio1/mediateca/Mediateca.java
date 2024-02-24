@@ -1,7 +1,6 @@
-package sv.edu.udb.desafio1;
+package sv.edu.udb.desafio1.mediateca;
 //import de package´s
 import sv.edu.udb.desafio1.material.escrito.Libro;
-import sv.edu.udb.desafio1.material.audiovisual.Dvd;
 
 
 //Librerias de java
