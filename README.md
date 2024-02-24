@@ -19,7 +19,7 @@ Para el desarrollo de este proyecto, utilizamos los siguientes lenguajes y herra
 
 En este desafío, nos enfocamos en aplicar los conceptos básicos de programación orientada a objetos, como la creación de clases, atributos y métodos, así como la herencia entre clases. Utilizamos IntelliJ IDEA como entorno de desarrollo integrado (IDE) para escribir y ejecutar nuestro código.
 
-El proyecto consiste en la creación de varias clases que representan diferentes conceptos relacionados con una tienda de videojuegos. Cada clase tiene sus propios atributos y métodos, y algunas de ellas heredan propiedades y comportamientos de otras clases.
+El proyecto consiste en la creación de varias clases que representan diferentes conceptos relacionados con una Mediateca. Cada clase tiene sus propios atributos y métodos, y algunas de ellas heredan propiedades y comportamientos de otras clases.
 
 ## Cómo ejecutar el proyecto
 
