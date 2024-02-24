@@ -118,6 +118,7 @@ public class Main {
                                      mediateca.addBooks(libro);
 
                                      JOptionPane.showMessageDialog(null, "Libro agregado correctamente a la mediateca.");
+                                     mediateca.guardarLibroTxt("libros.txt");
                                      System.out.println(libro.toString());
 
                                      break;
@@ -258,6 +259,7 @@ public class Main {
                                     // se agg el DVD a la mediateca
                                     dvdMediateca.addDvds(dvd);
                                     JOptionPane.showMessageDialog(null, "DVD agregado correctamente a la mediateca.");
+                                    dvdMediateca.guardarDvdTxt("DVDs.txt");
                                     System.out.println(dvd.toString());
 
                                     break;
@@ -366,6 +368,7 @@ public class Main {
 
                                     cdMediateca.addCds(cdAudio);
                                     JOptionPane.showMessageDialog(null, "CD agregado correctamente a la mediateca.");
+                                    cdMediateca.guardarCdTxt("CDs.txt");
                                     System.out.println(cdAudio.toString());
                                     break;
 
@@ -477,6 +480,7 @@ public class Main {
                                     revistasMediateca.addRevista(revista);
                                     JOptionPane.showMessageDialog(null, "Revista agregada correctamente a la mediateca.");
                                     System.out.println(revista.toString());
+                                    revistasMediateca.guardarRevistaTxt("revistas.txt");
                                     break;
 
                                 case 2:

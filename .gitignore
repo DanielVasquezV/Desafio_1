@@ -1,5 +1,9 @@
 ### IntelliJ IDEA ###
 out/
+CDs.txt
+DVDs.txt
+libros.txt
+revistas.txt
 !**/src/main/**/out/
 !**/src/test/**/out/
 
