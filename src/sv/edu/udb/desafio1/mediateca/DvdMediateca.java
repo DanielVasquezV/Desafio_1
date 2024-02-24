@@ -1,9 +1,14 @@
 package sv.edu.udb.desafio1.mediateca;
 import sv.edu.udb.desafio1.material.audiovisual.Dvd;
 import sv.edu.udb.desafio1.material.escrito.Libro;
+import sv.edu.udb.desafio1.material.escrito.Revista;
 
 import javax.swing.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 public class DvdMediateca {
     public HashMap<String, Dvd> dvds;
@@ -20,6 +25,7 @@ public class DvdMediateca {
         if (dvds.containsKey(codigoIdentificacion)) {
             Dvd dvdBorrar = dvds.remove(codigoIdentificacion);
             JOptionPane.showMessageDialog(null, "DVD eliminado correctamente:\n" + dvdBorrar.toString());
+            guardarDvdTxt("DVDs.txt");
         } else {
             JOptionPane.showMessageDialog(null, "DVD con código " + codigoIdentificacion + " no encontrado.");
         }
@@ -29,6 +35,20 @@ public class DvdMediateca {
             JOptionPane.showMessageDialog(null, "DVD encontrado: "+dvds.get(codigoIdentificacion));
         } else {
             JOptionPane.showMessageDialog(null, "DVD con código " + codigoIdentificacion + " no encontrado.");
+        }
+    }
+
+    public void guardarDvdTxt(String nombreArchivo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
+            for (Map.Entry<String, Dvd> entry : dvds.entrySet()) {
+                String linea = entry.getValue().toString();
+                writer.write(linea);
+                writer.newLine();
+            }
+            JOptionPane.showMessageDialog(null, "Datos guardados/actualizados correctamente en " + nombreArchivo);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error al guardar en el archivo: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
