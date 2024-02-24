@@ -123,9 +123,83 @@ public class Main {
                                      break;
 
                                  case 2:
+                                     String updLibro = JOptionPane.showInputDialog(null,
+                                             "Inresa el codigo de intentificacion del libro a actualizar:");
+                                     if (updLibro != null){
+                                         if(mediateca.libros.containsKey(updLibro)){
+                                             Libro libroExistente = mediateca.libros.get(updLibro);
+                                             String nuevoTitulo = obtenerTitulo("Libro");
+                                             String nuevoAutor = obtenerAutor("Libro");
+                                             boolean nextstep = false;
+                                             int nuevoNumeroPaginas = 0;
+                                             do {
+                                                 try {
+                                                     String nuevoNumeroPaginasString = JOptionPane.showInputDialog("Ingrese el nuevo número de páginas:");
+                                                     nuevoNumeroPaginas = Integer.parseInt(nuevoNumeroPaginasString);
+                                                     nextstep = true;
+                                                 } catch (NumberFormatException e) {
+                                                     JOptionPane.showMessageDialog(null, "Error. Por favor, ingrese un número entero válido.");
+                                                 }
+                                             } while (!nextstep);
+                                             String nuevaEditorial = obtenerEditorial("Libro");
+
+                                             nextstep = false;
+                                             int nuevoISBN = 0;
+                                             do {
+                                                 try {
+                                                     String ISBNString = JOptionPane.showInputDialog("Ingrese el ISBN del libro:");
+                                                     // Verificar la longitud y si es un número entero
+                                                     if (ISBNString.length() == 9) {
+                                                         nuevoISBN = Integer.parseInt(ISBNString);
+                                                         nextstep = true;
+                                                     } else {
+                                                         JOptionPane.showMessageDialog(null, "Error. El ISBN debe tener exactamente 9 dígitos.");
+                                                     }
+                                                 } catch (NumberFormatException e) {
+                                                     JOptionPane.showMessageDialog(null, "Error. Por favor, ingrese un número entero válido.");
+                                                 }
+                                             } while (!nextstep);
+
+                                             pass = false;
+                                             int nuevoAnioPublicacion = 0;
+                                             do {
+                                                 try {
+                                                     String nuevoAnioPublicacionString = JOptionPane.showInputDialog ("Ingrese el año de publicación del libro:");
+                                                     if (nuevoAnioPublicacionString.length() <= 4){
+                                                         nuevoAnioPublicacion = Integer.parseInt(nuevoAnioPublicacionString);
+
+                                                         int anioActual = Calendar.getInstance().get(Calendar.YEAR);
+
+                                                         if (nuevoAnioPublicacion > anioActual) {
+                                                             JOptionPane.showMessageDialog(null, "Error. Ingrese un año válido");
+                                                         } else {
+                                                             pass = true;
+                                                         }
+                                                     } else {
+                                                         JOptionPane.showMessageDialog(null, "Error. Ingrese un año valido");
+                                                     }
+
+                                                 } catch (NumberFormatException e) {
+                                                     JOptionPane.showMessageDialog(null, "Error. Por favor, ingrese un número entero válido.");
+                                                 }
+                                             } while (!pass);
+                                             int nuevasUnidades = obtenerUnidades("Libro");
+
+                                             Libro nuevoLibro = new Libro(libroExistente.getCodigoIdentificacion(), nuevoTitulo, nuevoAutor,
+                                                     nuevoNumeroPaginas, nuevaEditorial,nuevoISBN,
+                                                     nuevoAnioPublicacion,nuevasUnidades);
+                                             mediateca.updateBooks(updLibro, nuevoLibro);
+                                             System.out.println("Se actualizo");
+                                             System.out.println(nuevoLibro);
+                                         }else {
+                                             JOptionPane.showMessageDialog(null, "El libro con código " + updLibro + " no se encuentra en la mediateca.");
+                                         }
+                                     }
                                      break;
 
                                  case 3:
+                                     mediateca.listarLibros();
+
 
                                      break;
 
@@ -174,16 +248,14 @@ public class Main {
                                             JOptionPane.showMessageDialog(null, "Ingrese un nombre valido");
                                         }
                                     } while (director == null || director.trim().isEmpty());
-                                    //duracion
+
                                     String duraciondvd = obtenerDuracion("Dvd");
-                                    //genero
                                     String generodvd = obtenerGenero("Dvd");
-                                    //unidades
                                     int unidadesDisponiblesdvd = obtenerUnidades("Dvd");
 
                                     Dvd dvd = new Dvd(codigoIdentificaciondvd, titulodvd, director, duraciondvd, generodvd, unidadesDisponiblesdvd);
 
-                                    // Agregar el DVD a la mediateca
+                                    // se agg el DVD a la mediateca
                                     dvdMediateca.addDvds(dvd);
                                     JOptionPane.showMessageDialog(null, "DVD agregado correctamente a la mediateca.");
                                     System.out.println(dvd.toString());
@@ -191,8 +263,39 @@ public class Main {
                                     break;
 
                                 case 2:
+                                    String updtDvd = JOptionPane.showInputDialog(null,
+                                            "Inresa el codigo de intentificacion del libro a actualizar:");
+                                    if (updtDvd != null){
+                                        if(dvdMediateca.dvds.containsKey(updtDvd)){
+                                            String nuevoCodigoIntentificacion = generarCodigoIdentificacion("DVD");
+                                            String nuevoTitulo = obtenerTitulo("Dvd");
+                                            int nuevasUnidades = obtenerUnidades("Dvd");
+                                            String nuevaDuracion = obtenerDuracion("Dvd");
+                                            String nuevoGenero = obtenerGenero("Dvd");
+                                            String nuevodirector;
+                                            do {
+                                                nuevodirector = JOptionPane.showInputDialog ("Ingrese el director del Dvd:");
+                                                if (nuevodirector == null || nuevodirector.trim().isEmpty()){
+                                                    JOptionPane.showMessageDialog(null, "Ingrese un nombre valido");
+                                                }
+                                            } while (nuevodirector == null || nuevodirector.trim().isEmpty());
+
+                                            Dvd nuevoDvd = new Dvd(nuevoCodigoIntentificacion,nuevoTitulo
+                                                    ,nuevaDuracion,nuevoGenero,nuevodirector, nuevasUnidades);
+                                             dvdMediateca.updateDvd(updtDvd, nuevoDvd);
+
+                                            System.out.println(nuevoDvd.toString());
+
+                                        }else {
+                                            JOptionPane.showMessageDialog(null, "DVD con código " + updtDvd +
+                                                    " no se encuentra en la mediateca.");
+                                        }
+                                    }
+
                                     break;
                                 case 3:
+                                    dvdMediateca.listarDvd();
+
 
                                 case 4:
                                     String codigoDvd = JOptionPane.showInputDialog(null,
@@ -267,8 +370,57 @@ public class Main {
                                     break;
 
                                 case 2:
+                                    String updtCd = JOptionPane.showInputDialog(null,
+                                            "Inresa el codigo de intentificacion del libro a actualizar:");
+                                    if (updtCd != null){
+                                        if(cdMediateca.cdAudios.containsKey(updtCd)){
+                                            String nuevoCodigoIntentificacion = generarCodigoIdentificacion("CDS");
+                                            String nuevoTitulo = obtenerTitulo("CDS");
+                                            int nuevasUnidades = obtenerUnidades("CDS");
+                                            String nuevaDuracion = obtenerDuracion("CDS");
+                                            String nuevoGenero = obtenerGenero("CDS");
+                                            String nuevoArtista;
+                                            do {
+                                                nuevoArtista = JOptionPane.showInputDialog ("Ingrese el director del Dvd:");
+                                                if (nuevoArtista == null || nuevoArtista.trim().isEmpty()){
+                                                    JOptionPane.showMessageDialog(null, "Ingrese un nombre valido");
+                                                }
+                                            } while (nuevoArtista == null || nuevoArtista.trim().isEmpty());
+
+                                            int nuevonumeroCancionesCd = 0;
+                                            pass = false;
+                                            do {
+                                                try {
+                                                    String nuevonumeroCancionesString = JOptionPane.showInputDialog ("Ingrese el n° de canciones: ");
+                                                    if (nuevonumeroCancionesString.length() <=0 ){
+                                                        nuevonumeroCancionesCd = Integer.parseInt(nuevonumeroCancionesString);
+                                                        JOptionPane.showMessageDialog(null, "Error: " +
+                                                                "Ingrese un numero valido");
+                                                    }else {
+                                                        pass = true;
+                                                    }
+                                                } catch (NumberFormatException e) {
+                                                    JOptionPane.showMessageDialog(null, "Error. Por favor, ingrese un número entero válido.");
+                                                }
+                                            } while (!pass);
+
+                                            CdAudio nuevoCd = new CdAudio(nuevoCodigoIntentificacion,nuevoTitulo
+                                                    ,nuevaDuracion,nuevoGenero,nuevoArtista, nuevasUnidades, nuevonumeroCancionesCd);
+                                            cdMediateca.updateCd(updtCd, nuevoCd);
+
+                                            System.out.println(nuevoCd.toString());
+
+                                        }else {
+                                            JOptionPane.showMessageDialog(null, "DVD con código " + optCd +
+                                                    " no se encuentra en la mediateca.");
+                                        }
+                                    }
+
                                     break;
                                 case 3:
+
+                                    cdMediateca.listarCds();
+
                                     break;
                                 case 4:
                                     String codigoCd = JOptionPane.showInputDialog(null,
@@ -301,6 +453,8 @@ public class Main {
                                     String codiIndetificacionRev = generarCodigoIdentificacion("REV");
                                     String tituloRev = obtenerTitulo("Revista");
                                     String editorialRev =  obtenerEditorial("Revista");
+                                    int unidadesDisponiblesRev = obtenerUnidades("Revista");
+
 
                                     String periodicidadRev;
                                     do {
@@ -318,17 +472,57 @@ public class Main {
                                         }
                                     } while (fechaPublicacionRev == null || fechaPublicacionRev.trim().isEmpty());
 
-                                    int unidadesDisponiblesRev = obtenerUnidades("Revista");
-
                                     Revista revista = new Revista(codiIndetificacionRev,tituloRev,editorialRev,periodicidadRev,fechaPublicacionRev, unidadesDisponiblesRev);
 
                                     revistasMediateca.addRevista(revista);
                                     JOptionPane.showMessageDialog(null, "Revista agregada correctamente a la mediateca.");
                                     System.out.println(revista.toString());
                                     break;
+
                                 case 2:
+                                    String updtRevista = JOptionPane.showInputDialog(null,
+                                            "Inresa el codigo de intentificacion de ls revista a actualizar:");
+                                    if (updtRevista != null) {
+                                        if(revistasMediateca.revistas.containsKey(updtRevista)) {
+                                            String nuevocódigoIdentificacion = generarCodigoIdentificacion("Rev");
+                                            String nuevoTitulo = obtenerTitulo("Revista");
+                                            String nuevaEditorial = obtenerEditorial("Revista");
+                                            int nuevasUnidadesDisponiblesRev = obtenerUnidades("Revista");
+
+                                            String nuevaperiodicidadRev;
+                                            do {
+                                                nuevaperiodicidadRev = JOptionPane.showInputDialog ("Ingrese la periodicidad:");
+                                                if (nuevaperiodicidadRev == null || nuevaperiodicidadRev.trim().isEmpty()){
+                                                    JOptionPane.showMessageDialog(null, "Ingrese un valor valido");
+                                                }
+                                            } while (nuevaperiodicidadRev == null || nuevaperiodicidadRev.trim().isEmpty());
+
+                                            String nuevaFechaPublicacionRev;
+                                            do {
+                                                nuevaFechaPublicacionRev = JOptionPane.showInputDialog ("Ingrese la fecha de publicación de la revista");
+                                                if (nuevaFechaPublicacionRev == null || nuevaFechaPublicacionRev.trim().isEmpty()){
+                                                    JOptionPane.showMessageDialog(null, "Ingrese una fecha");
+                                                }
+                                            } while (nuevaFechaPublicacionRev == null || nuevaFechaPublicacionRev.trim().isEmpty());
+
+
+
+                                            Revista nuevaRevista = new Revista(nuevocódigoIdentificacion, nuevoTitulo, nuevaEditorial,
+                                                    nuevaFechaPublicacionRev, nuevaperiodicidadRev, nuevasUnidadesDisponiblesRev);
+
+                                            revistasMediateca.updateRevista(updtRevista, nuevaRevista);
+                                            System.out.println(nuevaRevista.toString());
+
+                                        }else {
+                                            JOptionPane.showMessageDialog(null, "Revista con código " + updtRevista + " no se encuentra en la mediateca.");
+                                        }
+                                    }
+
+
+
                                     break;
                                 case 3:
+                                    revistasMediateca.listarRevistas();
                                     break;
                                 case 4:
                                     String codigoRev = JOptionPane.showInputDialog(null,

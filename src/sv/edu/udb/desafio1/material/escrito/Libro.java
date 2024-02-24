@@ -54,12 +54,12 @@ public class Libro extends MaterialEscrito {
     public String toString() {
         return
                 "Código: " + getCodigoIdentificacion() + ',' +
-                " Titulo: " + getTitulo() + ',' +
-                " Autor: " + autor  +
-                " Numero de páginas: " + numeroPaginas + ',' +
-                " Editorial: " + getEditorial() + ',' +
+                " titulo: " + getTitulo() + ',' +
+                " autor: " + autor  +
+                " numerPaginas: " + numeroPaginas + ',' +
+                " editorial: " + getEditorial() + ',' +
                 " ISBN: " + ISBN + ',' +
-                " Año de publicación: " + anioPublicacion  + ',' +
-                " Unidades disponibles: " + getUnidadesDisponibles();
+                " anioPublicación: " + anioPublicacion  + ',' +
+                " unidadesDisponibles: " + getUnidadesDisponibles();
     }
 }

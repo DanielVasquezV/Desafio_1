@@ -22,12 +22,12 @@
 
         public String toString() {
             return
-                    "Código: " + getCodigoIdentificacion() + ',' +
-                    " Titulo: " + getTitulo() + ',' +
-                    " Unidades disponibles: " + getUnidadesDisponibles() + ',' +
-                    " Duracion: " + getDuracion()  + ',' +
-                    " Género: " + getGenero() + ',' +
-                    " Director: " + director ;
+                    "codigoIndentificacionDvd: " + getCodigoIdentificacion() + ',' +
+                    " tituloDvd: " + getTitulo() + ',' +
+                    " unidadesDisponiblesDvd: " + getUnidadesDisponibles() + ',' +
+                    " duracionDvd: " + getDuracion()  + ',' +
+                    " géneroDvd: " + getGenero() + ',' +
+                    " directorDvd: " + director ;
         }
     }
 

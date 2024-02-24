@@ -30,12 +30,13 @@ public class Revista extends MaterialEscrito {
 
     public String toString() {
         return
-                "Código: " + getCodigoIdentificacion() + ',' +
-                " Titulo: " + getTitulo() + ',' +
-                " Editorial: " + getEditorial() + ',' +
-                " Unidades disponibles: " + getUnidadesDisponibles() + ',' +
-                " Periodicidad: " + periodicidad + ',' +
-                " Fecha de publicación: " + fechaPublicacion + ',';
+                "códigoIdentificacionRev: " + getCodigoIdentificacion() + ',' +
+                " tituloRev: " + getTitulo() + ',' +
+                " editorialRev: " + getEditorial() + ',' +
+                " unidadesdisponiblesRev: " + getUnidadesDisponibles() + ',' +
+                " periodicidadRev: " + periodicidad + ',' +
+                " FechaPublicaciónRev: " + fechaPublicacion + ',';
+
     }
 
 }
